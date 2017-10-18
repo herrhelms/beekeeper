@@ -1,0 +1,39 @@
+{
+  "name": "BeeKeeper",
+  "productName": "BeeKeeper",
+  "version": "0.0.1",
+  "description": "simple and distraction-less time tracking solution for mac os",
+  "license": "MIT",
+  "repository": "https://github.com/herrhelms/beekeeper",
+  "author": {
+    "name": "herrhelms"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "electronVersion": "1.7.9",
+  "scripts": {
+    "start": "electron . &"
+  },
+  "files": [
+    "index.js",
+    "index.html"
+  ],
+  "build": {
+    "productName": "BeeKeeper"
+  },
+  "keywords": [
+    "electron-app",
+    "menubar",
+    "productivity",
+    "time-tracking",
+    "osx"
+  ],
+  "devDependencies": {
+    "electron-packager": "^7.7.0",
+    "electron": "^1.7.9"
+  },
+  "dependencies": {
+    "electron": "^1.7.9"
+  }
+}
