@@ -25,7 +25,7 @@ The line above will open the __projects__ file with <kbd>TextEdit.app</kbd>. Add
 
 ### Start BeeKeeper
 
-A zipped version of the app can be found [here](https://github.com/herrhelms/beekeeper/dist/beekeeper.zip) in the `./dist` folder of this repo. At the end of this page you can find instructions on how to build it yourself.
+A zipped version of the app can be found [here](https://github.com/herrhelms/beekeeper/blob/master/dist/BeeKeeper.zip) in the `./dist` folder of this repo. At the end of this page you can find instructions on how to build it yourself.
 
 Best place to have the <kbd>BeeKeeper.app</kbd> is the `/Applications/` directory of your harddrive. If you like to start the app upon login. Add it to System Preferences -> Users & Groups -> Login Items.
 
@@ -44,7 +44,7 @@ The format is as follows:
 -
 
 #### Can't see no time passing!
-That's right! **Keep in mind** that I wanted it to keep it as simple as possible. So for now BeeKeeper __does not show any time spent__ on your projects within the app. You should use the .csv files for each project to further accumulate and sum up the time spent on each project for billing purposes or whatever you wish...
+That's right! Keep in mind that I wanted this app to be as simple as possible! So for now BeeKeeper *does not show any time spent* on your projects within the app. You should use the .csv files for each project to further accumulate and sum up the time spent on each project for billing purposes or whatever you wish...
 
 -
 
