@@ -1,4 +1,4 @@
-![beekeeper screenshot](https://dl.dropboxusercontent.com/content_link/xS5GgWq4zzjbqgEQb1G1E0sZIJd0ZLTUkOUd2AQPrMLXSiwzWpCkGEjt5APbcuwk/file)
+![beekeeper screenshot](https://www.dropbox.com/s/bosdjlackt385vz/beekeeper_screenshot.jpg?raw=1)
 
 ### Before you start / Setup instructions
 
