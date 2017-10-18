@@ -1,5 +1,4 @@
-# BeeKeeper
-simple and distraction-less time tracking solution for mac os
+![beekeeper screenshot](https://dl.dropboxusercontent.com/content_link/xS5GgWq4zzjbqgEQb1G1E0sZIJd0ZLTUkOUd2AQPrMLXSiwzWpCkGEjt5APbcuwk/file)
 
 ### Before you start / Setup instructions
 
