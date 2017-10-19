@@ -113,6 +113,8 @@ const appendMenuItem = (name) => {
 }
 
 app.on('ready', () => {
+  shell.spawn(__dirname + '/setup.sh')
+
   path  = process.env.HOME + '/.beekeeper/'
   tray = new Tray(__dirname + '/BeeOff.png')
 

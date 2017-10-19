@@ -1,42 +1,39 @@
+#BeeKeeper
+
 ![beekeeper screenshot](https://www.dropbox.com/s/bosdjlackt385vz/beekeeper_screenshot.jpg?raw=1)
 
-### Before you start / Setup instructions
 
-1.) **open <kbd>Terminal.app</kbd>** from `/Applications/Utilities/`
-
-2.) **enter the following commands** and press enter after each line
-
-```
- mkdir ~/.beekeeper
- touch ~/.beekeeper/projects
- mkdir ~/.beekeeper/sessions
-```
-
-3.) **open the projects file and add some project names** - every project will create it's own timesheet .csv file. whenever you change the name of a project a new .csv file will be created.
-deleting items from the project file __will not__ remove the .csv files (timesheets) for a removed project.
-
-```
-open -e ~/.beekeeper/projects
-```
-
-The line above will open the __projects__ file with <kbd>TextEdit.app</kbd>. Add one project name per line. Make sure there's no empty line at the end of the file! You can use emojis to make better distiction between your projects. Don't forget to save the file when your\'e done!
-
--
-
-### Start BeeKeeper
+### Installing BeeKeeper
 
 A zipped version of the app can be found [here](https://github.com/herrhelms/beekeeper/blob/master/dist/BeeKeeper.zip) in the `./dist` folder of this repo. At the end of this page you can find instructions on how to build it yourself.
 
-Best place to have the <kbd>BeeKeeper.app</kbd> is the `/Applications/` directory of your harddrive. If you like to start the app upon login. Add it to System Preferences -> Users & Groups -> Login Items.
+Best place to have the <kbd>BeeKeeper.app</kbd> is the `/Applications/` directory of your harddrive. If you like to auto-start the app upon login add it to `System Preferences -> Users & Groups -> Login Items`.
 
 After launching the app take a look at your menu bar in the upper right of your screen. A little black & white bee icon should appear. Once you click on the bee your projects will appear. Tracking time is as easy as clicking on a project name and off you go... Click again if you're finished working on a particular project.
 
 **Happy Timetracking!**
 
--
+* * *
 
-#### What about these .csv files?
-Timesheet reports for each project will reside in the `~/.beekeeper/sessions` folder.
+#### What's happening behind the scenes?
+
+An invisible folder called `.beekeeper` will be added to your user directory (`~/`). Within this directory a file called `projects` handles a list containing all your projects. A dummy project should be available upon first run. You can open, edit and save the project file to your liking at any time. There's a link within the app to edit your project file.
+Alternatively you can use the <kbd>Terminal.app</kbd> which can be found in `/Applications/Utilities` to do so.
+
+```
+open -e ~/.beekeeper/projects
+```
+
+The line above will open the projects file with <kbd>TextEdit.app</kbd>.
+
+When editing your project file, add one project name per line and *make sure there's no empty line at the end of the file*! You can *use emojis* to make better distinction between your projects. Don't forget to *save the file when your'e done* with your changes!
+
+Every project will create it's own timesheet .csv file whenever you start to track time for the specific project. If you change a name of a project a new .csv file will be created upon next run. Deleting lines from the project file _will not_ remove the .csv files (timesheets) for the removed project. **You need to restart the application** whenever you make changes to the projects file.
+
+* * *
+
+#### What about these timesheet files?
+Timesheet reports are spreadsheets in .csv format. One exists for each project and will reside in the `~/.beekeeper/sessions` directory.
 
 The format is as follows:
 `DATE IN;DATE OUT;SECONDS`
@@ -48,7 +45,7 @@ That's right! Keep in mind that I wanted this app to be as simple as possible! S
 
 -
 
-For your convenience there are links to access your timesheets and to edit the projects file from within the app. **You need to restart the application** whenever you make changes to the projects file.
+For your convenience there are links to access your timesheets and to edit the projects file from within the app.
 
 -
 
