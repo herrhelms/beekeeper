@@ -1,6 +1,7 @@
 const {app, Menu, MenuItem, Tray} = require('electron')
 const fs = require('fs')
 const shell = require('child_process')
+var chokidar = require('chokidar');
 
 let path = null
 let apppath = null
@@ -10,6 +11,11 @@ let setupDone = false
 let currentRunning = null
 let tray = null
 let contextMenu = null
+
+// watch for file changes
+var log = console.log.bind(console);
+
+
 
 // timer
 const startTimer = (name) => {
@@ -119,6 +125,14 @@ app.on('ready', () => {
   tray = new Tray(__dirname + '/BeeOff.png')
 
   contextMenu = Menu.buildFromTemplate([])
+
+  // watch for file changes (projects)
+  let file = path + 'projects';
+  let watch = chokidar.watch(file);
+  watch.on('change', () => {
+    app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+    app.exit(0)
+  })
 
   if (!setupDone) {
     var data = fs.readFileSync(path + 'projects')

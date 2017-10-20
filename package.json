@@ -34,6 +34,7 @@
     "electron": "^1.7.9"
   },
   "dependencies": {
+    "chokidar": "^1.7.0",
     "electron": "^1.7.9"
   }
 }
