@@ -26,9 +26,9 @@ open -e ~/.beekeeper/projects
 
 The line above will open the projects file with <kbd>TextEdit.app</kbd>.
 
-When editing your project file, add one project name per line and *make sure there's no empty line at the end of the file*! You can *use emojis* to make better distinction between your projects. Don't forget to *save the file when your'e done* with your changes!
+When editing your project file, add one project name per line and *make sure there's no empty line at the end of the file*! **Project names must be unique**. You can *use emojis* to make better distinction between your projects. Don't forget to *save the file when your'e done* with your changes!
 
-Every project will create it's own timesheet .csv file whenever you start to track time for the specific project. If you change a name of a project a new .csv file will be created upon next run. Deleting lines from the project file _will not_ remove the .csv files (timesheets) for the removed project. **You need to restart the application** whenever you make changes to the projects file.
+Every project will create it's own timesheet .csv file whenever you start to track time for the specific project. If you change a name of a project a new .csv file will be created upon next run. Deleting lines from the project file _will not_ remove the .csv files (timesheets) for the removed project. ~**You need to restart the application** whenever you make changes to the projects file.~
 
 * * *
 
@@ -38,16 +38,16 @@ Timesheet reports are spreadsheets in .csv format. One exists for each project a
 The format is as follows:
 `DATE IN;DATE OUT;SECONDS`
 
--
+* * *
 
-#### Can't see no time passing!
+#### Can't see no time passing?
 That's right! Keep in mind that I wanted this app to be as simple as possible! So for now BeeKeeper *does not show any time spent* on your projects within the app. You should use the .csv files for each project to further accumulate and sum up the time spent on each project for billing purposes or whatever you wish...
 
--
+* * *
 
 For your convenience there are links to access your timesheets and to edit the projects file from within the app.
 
--
+* * *
 
 #### Disclaimer / Terms and Conditions
 
@@ -57,7 +57,7 @@ Needless to say: **Use at your own risk!** The creator of this app is not in any
 Feedback, Issue reports, Pull requests and donations are welcome!
 I'd be very happy to hear from you. [Get in touch](https://twitter.com/herrhelms) on twitter!
 
--
+* * *
 
 #### Wanna build the app from source?
  - Clone the repo onto your harddrive
@@ -65,3 +65,15 @@ I'd be very happy to hear from you. [Get in touch](https://twitter.com/herrhelms
  - run `npm install`
  - run `electron-packager . --platform=darwin --icon=Icon --arch=x64 --out=dist --extend-info=extend-build.plist`
  - look into the `./dist` folder to find your BeeKeeper app
+
+ * * *
+
+#### Roadmap
+  - [x] auto-restart app when projects file is saved
+  - [ ] warn for/disallow same project names
+  - [ ] stop/restart timers on system sleep/wake events (e.g. screensaver)
+  - [ ] stop tracking when computer is idle for more then X minutes
+  - [ ] create a help and feedback webpage
+  - [ ] make the running timer/project more obvious
+  - [ ] find a way to show the total time spent on projects
+  - [ ] add hourly rates for each project to calculate income within csv
