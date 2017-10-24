@@ -26,26 +26,22 @@ open -e ~/.beekeeper/projects
 
 The line above will open the projects file with <kbd>TextEdit.app</kbd>.
 
-When editing your project file, add one project name per line and *make sure there's no empty line at the end of the file*! **Project names must be unique**. You can *use emojis* to make better distinction between your projects. Don't forget to *save the file when your'e done* with your changes!
+When editing your project file, add one project name per line and *make sure there's no empty line at the end of the file*! **Project names must be unique**. You can *use emojis* to make better distinction between your projects. Don't forget to *save the file when you're done* with your changes!
 
-Every project will create it's own timesheet .csv file whenever you start to track time for the specific project. If you change a name of a project a new .csv file will be created upon next run. Deleting lines from the project file _will not_ remove the .csv files (timesheets) for the removed project. ~**You need to restart the application** whenever you make changes to the projects file.~
+Every project will create its own timesheet .csv file. If you change the name of your project a new .csv file will be created upon next run. Deleting lines from the project file _will not_ remove any existing .csv files (timesheets) for this project. ~You need to restart the application whenever you make changes to the projects file.~
 
 * * *
 
 #### What about these timesheet files?
-Timesheet reports are spreadsheets in .csv format. One exists for each project and will reside in the `~/.beekeeper/sessions` directory.
+Timesheet reports are spreadsheets in .csv format. One exists for each project and will reside in the `~/.beekeeper/sessions` directory. For your convenience there's a link to access all your timesheets from within the app.
 
-The format is as follows:
+The format of the .csv is as follows:
 `DATE IN;DATE OUT;SECONDS`
 
 * * *
 
 #### Can't see no time passing?
 That's right! Keep in mind that I wanted this app to be as simple as possible! So for now BeeKeeper *does not show any time spent* on your projects within the app. You should use the .csv files for each project to further accumulate and sum up the time spent on each project for billing purposes or whatever you wish...
-
-* * *
-
-For your convenience there are links to access your timesheets and to edit the projects file from within the app.
 
 * * *
 
