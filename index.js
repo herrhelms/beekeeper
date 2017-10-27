@@ -1,3 +1,4 @@
+const electron = require('electron')
 const {app, Menu, MenuItem, Tray} = require('electron')
 const fs = require('fs')
 const shell = require('child_process')
@@ -15,8 +16,6 @@ let contextMenu = null
 // watch for file changes
 var log = console.log.bind(console);
 
-
-
 // timer
 const startTimer = (name) => {
   currentRunning = name
@@ -32,6 +31,19 @@ const stopTimer = (name) => {
   interval = null
   currentRunning = null
   isRunning[name] = false
+  openAndExtentTimesheet(name)
+}
+
+const resumeTimer = (name) => {
+  currentRunning = name
+  interval = setInterval(everySecond, 1000)
+  isRunning[name] = true
+  prepareTimesheet(name)
+}
+
+const pauseTimer = (name) => {
+  clearInterval(interval)
+  interval = null
   openAndExtentTimesheet(name)
 }
 
@@ -119,6 +131,19 @@ const appendMenuItem = (name) => {
 }
 
 app.on('ready', () => {
+  electron.powerMonitor.on('suspend', () => {
+    if (currentRunning != null && isRunning[currentRunning]) {
+      pauseTimer(currentRunning)
+    }
+  })
+
+  electron.powerMonitor.on('resume', () => {
+    if (currentRunning != null && isRunning[currentRunning]) {
+      resumeTimer(currentRunning)
+    }
+  })
+
+
   shell.spawn(__dirname + '/setup.sh')
 
   path  = process.env.HOME + '/.beekeeper/'
@@ -161,6 +186,26 @@ app.on('ready', () => {
 
   let seperator2 = new MenuItem({label: null,  type: 'separator'})
   contextMenu.append(seperator2)
+
+  contextMenu.append(new MenuItem(
+    {
+      label: 'About',
+      role: 'help',
+      submenu: [
+        {
+          label: '🎓 Learn More',
+          click () { require('electron').shell.openExternal('https://github.com/herrhelms/beekeeper#readme') }
+        },
+        {
+          label: '💰 Donate',
+          click () { require('electron').shell.openExternal('https://bit.ly/2iau7DW') }
+        }
+      ]
+    }
+  ))
+
+  let seperator3 = new MenuItem({label: null,  type: 'separator'})
+  contextMenu.append(seperator3)
 
   let closeitem = new MenuItem({label: 'Quit', accelerator:'CommandOrControl+Q', click() {
     app.quit()
