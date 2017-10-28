@@ -47,7 +47,7 @@ I'd be very happy to hear from you. [Get in touch](https://twitter.com/herrhelms
 
 Since there are no hidden analytics within the app I have no clue how many people are using beekeeper. It would actually be really great to hear from you since I have no other way to get in touch with the users of my app. I'd love to get your feedback, comments, ideas and constructive criticism.
 
-If this app helps you to be more productive consider sending a dollar or two via [paypal](https://bit.ly/fund-me) or some satoshis to [1DH5y9cZhS4s4cDpEK5SNnU3u2iiVGjGVw](bitcoin://1DH5y9cZhS4s4cDpEK5SNnU3u2iiVGjGVw).
+If this app helps you to be more productive consider sending a dollar or two via [paypal](https://bit.ly/fund-me) or some satoshis <kbd>1DH5y9cZhS4s4cDpEK5SNnU3u2iiVGjGVw</kbd>
 
 Thanks!
 
