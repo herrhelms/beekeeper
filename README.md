@@ -66,10 +66,11 @@ No problem! Just follow the instructions below and you should be all set. If you
  * * *
 
 #### Roadmap
-  - [x] auto-restart app when projects file is saved
-  - [x] stop/restart timers on system sleep/wake events (e.g. screensaver)
-  - [x] create a help and feedback webpage (link to this readme)
-  - [x] make the running timer/project more obvious
+  - [x] ~auto-restart app when projects file is saved~
+  - [x] ~stop/restart timers on system sleep/wake events (e.g. screensaver)~
+  - [x] ~create a help and feedback webpage (link to this readme)~
+  - [x] ~make running state more obvious in menu bar~
+  - [ ] stop running timer when app closes (for whatever reason)
   - [ ] better date format in csv files
   - [ ] track minutes passed instead of seconds passed in csv files
   - [ ] (?) stop tracking when computer is idle for more then X minutes
