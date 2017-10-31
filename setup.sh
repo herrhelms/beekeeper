@@ -26,7 +26,9 @@ then
     echo "beekeeper - config file does exist"
   else
     # create sessions directory
-
+    echo "HELP:TRUE;
+INTERVAL:1;
+FULLMODE:TRUE;" >> "$HOME/.beekeeper/settings"
   fi
 else
   # create directories and files
