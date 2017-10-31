@@ -72,8 +72,36 @@ const attachToOrCreateTimesheet = (filepath) => {
   })
 }
 
+// settings WIP -> for now only the about submenu can be hidden
+var readSettings = () => {
+  var filepath = path + "settings";
+  var returnval;
+  return fs.readFile(filepath, 'utf-8', (err, data) => {
+    let existingcontent = data.toString().split('\n')
+    if (existingcontent[0].split(':')[1] == 'TRUE;') {
+      returnval = true
+    }
+  })
+  return returnval;
+}
+
+const readAndChangeSettings = () => {
+  var filepath = path + "settings";
+  fs.readFile(filepath, 'utf-8', (err, data) => {
+    let existingcontent = data.toString().split('\n')
+    let leftovers = existingcontent
+    let newcontent = (["HELP:FALSE;",existingcontent[1],existingcontent[2]]).join('\n');
+    try {
+      fs.writeFileSync(filepath, newcontent, 'utf-8')
+      app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+      app.exit(0)
+    }
+    catch(e) { console.log('Failed to save the file !') }
+  })
+}
+
 const openAndExtentTimesheet = (name) => {
-  var filepath = path + "sessions/" + name + ".csv";// you need to save the filepath when you open the file to update without use the filechooser dialog againg
+  var filepath = path + "sessions/" + name + ".csv";
   fs.readFile(filepath, 'utf-8', (err, data) => {
     let existingcontent = data.toString()
     let lines = existingcontent.split('\n')
@@ -184,25 +212,39 @@ app.on('ready', () => {
   }})
   contextMenu.append(sheetitem)
 
-  let seperator2 = new MenuItem({label: null,  type: 'separator'})
-  contextMenu.append(seperator2)
-
-  contextMenu.append(new MenuItem(
-    {
-      label: 'About',
-      role: 'help',
-      submenu: [
-        {
-          label: '🎓 Learn More',
-          click () { require('electron').shell.openExternal('https://github.com/herrhelms/beekeeper#readme') }
-        },
-        {
-          label: '💰 Donate',
-          click () { require('electron').shell.openExternal('https://bit.ly/2iau7DW') }
-        }
-      ]
+  var data = fs.readFileSync(path + 'settings')
+  var lines = data.toString().split('\n')
+  for (var i = 0; i < lines.length; i++){
+    if (i == 0) {
+      var help = lines[i].split(':')[1].replace(';','')
+      if (help === 'TRUE') {
+        let seperator2 = new MenuItem({label: null,  type: 'separator'})
+        contextMenu.append(seperator2)
+        contextMenu.append(new MenuItem(
+          {
+            label: 'About',
+            role: 'help',
+            submenu: [
+              {
+                label: '🎓 Learn More',
+                click () { require('electron').shell.openExternal('https://github.com/herrhelms/beekeeper#readme') }
+              },
+              {
+                label: '💰 Donate',
+                click () { require('electron').shell.openExternal('https://bit.ly/2iau7DW') }
+              },
+              {
+                label: '🚫 Never show again',
+                click() {
+                  readAndChangeSettings()
+                }
+              }
+            ]
+          }
+        ))
+      }
     }
-  ))
+  }
 
   let seperator3 = new MenuItem({label: null,  type: 'separator'})
   contextMenu.append(seperator3)
