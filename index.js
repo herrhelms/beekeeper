@@ -230,7 +230,7 @@ app.on('ready', () => {
                 click () { require('electron').shell.openExternal('https://github.com/herrhelms/beekeeper#readme') }
               },
               {
-                label: '💰 Donate',
+                label: '☕️ Buy me a coffee',
                 click () { require('electron').shell.openExternal('https://bit.ly/2iau7DW') }
               },
               {
